@@ -1,0 +1,116 @@
+/* Floral Pastel template styles. Only transform/opacity are animated. */
+
+.paper {
+  background-color: var(--inv-bg);
+  background-image: var(--paper-texture);
+  background-size: 180px 180px;
+}
+
+/* ── Falling petals ─────────────────────────────── */
+.petals {
+  position: fixed;
+  inset: 0;
+  overflow: hidden;
+  pointer-events: none;
+  z-index: 1;
+}
+.petal {
+  position: absolute;
+  top: -40px;
+  width: 18px;
+  height: 18px;
+  will-change: transform;
+  animation: fall var(--dur, 12s) linear var(--delay, 0s) infinite;
+}
+@keyframes fall {
+  0% {
+    transform: translate3d(0, -5vh, 0) rotate(0deg);
+    opacity: 0;
+  }
+  10% {
+    opacity: 0.9;
+  }
+  50% {
+    transform: translate3d(var(--drift, 40px), 50vh, 0) rotate(200deg);
+  }
+  90% {
+    opacity: 0.85;
+  }
+  100% {
+    transform: translate3d(calc(var(--drift, 40px) * -0.5), 108vh, 0) rotate(420deg);
+    opacity: 0;
+  }
+}
+
+/* ── Envelope intro ─────────────────────────────── */
+.envelopeFloat {
+  animation: float 4.5s ease-in-out infinite;
+}
+@keyframes float {
+  0%,
+  100% {
+    transform: translate3d(0, 0, 0);
+  }
+  50% {
+    transform: translate3d(0, -8px, 0);
+  }
+}
+
+.envelope {
+  position: relative;
+  width: min(84vw, 380px);
+  aspect-ratio: 400 / 280;
+  perspective: 1000px;
+}
+.layer {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+}
+.flap {
+  transform-origin: 50% 0%;
+  backface-visibility: visible;
+}
+.card {
+  position: absolute;
+  left: 6%;
+  right: 6%;
+  top: 6%;
+  height: 90%;
+  border-radius: 6px;
+  background: var(--inv-surface);
+  box-shadow: 0 6px 24px -10px rgb(80 30 40 / 0.35);
+}
+.seal {
+  position: absolute;
+  left: 50%;
+  top: 59%;
+  width: 22%;
+  aspect-ratio: 1;
+  transform: translate(-50%, -50%);
+}
+
+.pulse {
+  animation: pulse 2.2s ease-in-out infinite;
+}
+@keyframes pulse {
+  0%,
+  100% {
+    opacity: 0.55;
+  }
+  50% {
+    opacity: 1;
+  }
+}
+
+/* Arch-shaped cover photo */
+.arch {
+  border-radius: 999px 999px 0.75rem 0.75rem;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .petals {
+    display: none;
+  }
+}

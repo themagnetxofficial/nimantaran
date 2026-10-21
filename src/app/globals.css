@@ -1,26 +1,135 @@
 @import "tailwindcss";
 
-:root {
-  --background: #ffffff;
-  --foreground: #171717;
-}
+/*
+ * ─── Nimantran design tokens ───────────────────────────────────
+ * Change brand colours / fonts HERE and the whole app follows.
+ * Tailwind turns each `--color-*` into utilities, e.g.
+ *   --color-wine-700  →  bg-wine-700, text-wine-700, border-wine-700
+ */
+@theme {
+  /* Warm ivory backgrounds */
+  --color-ivory-50: #fffdf8;
+  --color-ivory-100: #fbf6ec;
+  --color-ivory-200: #f4ead8;
+  --color-ivory-300: #eadbbf;
 
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
-}
+  /* Deep maroon / wine (primary) */
+  --color-wine-300: #d99aa5;
+  --color-wine-500: #a3374b;
+  --color-wine-600: #8a2337;
+  --color-wine-700: #6f1a2b;
+  --color-wine-800: #561322;
+  --color-wine-900: #3d0d18;
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
+  /* Soft gold (accent) */
+  --color-gold-200: #f1e1b5;
+  --color-gold-300: #e6cc8a;
+  --color-gold-400: #d6b25e;
+  --color-gold-500: #b8913a;
+  --color-gold-600: #94722a;
+
+  /* Text */
+  --color-ink-900: #2a1a1f;
+  --color-ink-700: #4c3a3f;
+  --color-ink-500: #7a6a6e;
+  --color-ink-300: #b5a9ab;
+
+  /* Fonts (CSS variables are set by next/font in src/lib/fonts.ts) */
+  --font-sans: var(--font-manrope), ui-sans-serif, system-ui, sans-serif;
+  --font-serif: var(--font-cormorant), "Times New Roman", serif;
+  --font-script: var(--font-great-vibes), cursive;
+  --font-hindi: var(--font-tiro-hindi), var(--font-noto-devanagari), serif;
+  --font-hindi-serif: var(--font-noto-devanagari), var(--font-tiro-hindi), serif;
+
+  --radius-card: 1.25rem;
+  --shadow-soft: 0 10px 40px -12px rgb(61 13 24 / 0.18);
+  --shadow-lifted: 0 24px 60px -20px rgb(61 13 24 / 0.35);
+
+  --animate-fade-up: fade-up 0.6s cubic-bezier(0.22, 1, 0.36, 1) both;
+  @keyframes fade-up {
+    from {
+      opacity: 0;
+      transform: translate3d(0, 12px, 0);
+    }
+    to {
+      opacity: 1;
+      transform: none;
+    }
   }
 }
 
-body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+/*
+ * Invite palette tokens. Every template sets these CSS variables on its
+ * root element (from the chosen palette in its manifest), and can use
+ * them as Tailwind utilities: bg-inv-bg, text-inv-primary, border-inv-accent…
+ */
+@theme inline {
+  --color-inv-bg: var(--inv-bg);
+  --color-inv-surface: var(--inv-surface);
+  --color-inv-primary: var(--inv-primary);
+  --color-inv-accent: var(--inv-accent);
+  --color-inv-text: var(--inv-text);
+  --color-inv-muted: var(--inv-muted);
+  --color-inv-on-primary: var(--inv-on-primary);
+}
+
+@layer base {
+  html {
+    -webkit-tap-highlight-color: transparent;
+    text-size-adjust: 100%;
+  }
+
+  body {
+    background: var(--color-ivory-50);
+    color: var(--color-ink-900);
+    font-family: var(--font-sans);
+  }
+
+  :focus-visible {
+    outline: 2px solid var(--color-gold-500);
+    outline-offset: 2px;
+  }
+
+  /* Hindi text automatically uses the Devanagari font */
+  :lang(hi) {
+    font-family: var(--font-hindi);
+  }
+}
+
+@layer utilities {
+  /* Reveal-on-scroll used by <Reveal>. Only opacity + transform are animated. */
+  .reveal {
+    opacity: 0;
+    transform: translate3d(0, 24px, 0);
+    transition:
+      opacity 0.8s cubic-bezier(0.22, 1, 0.36, 1),
+      transform 0.8s cubic-bezier(0.22, 1, 0.36, 1);
+    transition-delay: var(--reveal-delay, 0ms);
+  }
+  .reveal[data-visible="true"] {
+    opacity: 1;
+    transform: none;
+  }
+
+  .no-scrollbar {
+    scrollbar-width: none;
+  }
+  .no-scrollbar::-webkit-scrollbar {
+    display: none;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+  .reveal {
+    opacity: 1;
+    transform: none;
+  }
 }

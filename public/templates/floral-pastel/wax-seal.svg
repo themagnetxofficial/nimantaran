@@ -1,0 +1,29 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 120 120" >
+<defs>
+<radialGradient id="pBlush" cx="0.5" cy="1" r="1.05">
+<stop offset="0" stop-color="#cf7f8b"/><stop offset="0.5" stop-color="#eaa9ab"/><stop offset="1" stop-color="#fbe4df"/>
+</radialGradient>
+<radialGradient id="pPeach" cx="0.5" cy="1" r="1.05">
+<stop offset="0" stop-color="#e09a7c"/><stop offset="0.5" stop-color="#f3c3a8"/><stop offset="1" stop-color="#fde9dc"/>
+</radialGradient>
+<radialGradient id="pIvory" cx="0.5" cy="1" r="1.05">
+<stop offset="0" stop-color="#e2c2ad"/><stop offset="0.5" stop-color="#f6e4d6"/><stop offset="1" stop-color="#fffaf4"/>
+</radialGradient>
+<radialGradient id="pRose" cx="0.5" cy="1" r="1.05">
+<stop offset="0" stop-color="#a94d63"/><stop offset="0.55" stop-color="#d27f8e"/><stop offset="1" stop-color="#f2c1c3"/>
+</radialGradient>
+<linearGradient id="leaf" x1="0" y1="0" x2="1" y2="0">
+<stop offset="0" stop-color="#6f8a69"/><stop offset="0.6" stop-color="#9bb393"/><stop offset="1" stop-color="#c3d3b8"/>
+</linearGradient>
+<linearGradient id="leafDark" x1="0" y1="0" x2="1" y2="0">
+<stop offset="0" stop-color="#55704f"/><stop offset="1" stop-color="#8ea886"/>
+</linearGradient>
+<linearGradient id="gold" x1="0" y1="0" x2="1" y2="1">
+<stop offset="0" stop-color="#e3c78a"/><stop offset="0.5" stop-color="#c49b4f"/><stop offset="1" stop-color="#a87f37"/>
+</linearGradient>
+</defs><radialGradient id="wax" cx="0.38" cy="0.32" r="0.8"><stop offset="0" stop-color="#d8707f"/><stop offset="0.55" stop-color="#a83b52"/><stop offset="1" stop-color="#76203a"/></radialGradient>
+<path d="M60 6 C72 4 80 12 90 14 C102 18 104 30 110 40 C118 52 112 62 114 74 C116 88 104 94 98 104 C90 114 78 112 66 116 C54 118 44 112 34 108 C22 104 18 92 12 82 C6 70 10 60 8 48 C8 34 18 28 26 20 C36 10 48 8 60 6Z" fill="url(#wax)"/>
+<circle cx="60" cy="60" r="36" fill="none" stroke="#f3c1c6" stroke-opacity="0.5" stroke-width="1.5"/>
+<circle cx="60" cy="60" r="31" fill="none" stroke="#5a1528" stroke-opacity="0.35" stroke-width="1"/>
+<g opacity="0.5" fill="#f6cfd3"><circle cx="102" cy="60" r="1.4"/><circle cx="96.4" cy="81" r="1.4"/><circle cx="81" cy="96.4" r="1.4"/><circle cx="60" cy="102" r="1.4"/><circle cx="39" cy="96.4" r="1.4"/><circle cx="23.6" cy="81" r="1.4"/><circle cx="18" cy="60" r="1.4"/><circle cx="23.6" cy="39" r="1.4"/><circle cx="39" cy="23.6" r="1.4"/><circle cx="60" cy="18" r="1.4"/><circle cx="81" cy="23.6" r="1.4"/><circle cx="96.4" cy="39" r="1.4"/></g>
+<ellipse cx="44" cy="36" rx="14" ry="7" fill="#fff" opacity="0.18" transform="rotate(-30 44 36)"/></svg>
